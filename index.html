@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./././node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="././node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-social/bootstrap-social.css">
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="js/myscript.js"></script>
+	<title>Document</title>
+</head>
+<body ng-app="MyApp" ng-controller="MyCtrl">
+	<div class="container-fluid">
+		<div class="jumbotron py-4">
+		<h2 class="text-center">{{title}}</h2>
+		<p class="pt-4">
+			The Coronavirus Disease 2019 (Covid 2019) epidemic is knocking on
+			doors after infecting tens of thousands of people in over 60 countries
+			across the world. This week, India reported three fresh coronavirus 
+			cases, taking the total number of confirmed infections in the.
+		</p>
+
+		<!-- ALl Data -->
+		<div class="row">
+			<div class="col-md-8">
+				<h6>Last updated on:- <a>{{all_new_data.Date}}</a></h6>
+			</div>
+		</div>
+		<div class="row text-center mt-4">
+			<div class="col-md-4">
+				<div class="card">
+					<div class="card-body bg-warning">
+						<h4>Confirmed Cases</h4>
+						<h4>{{all_new_data.Global.TotalConfirmed}}</h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card">
+					<div class="card-body bg-success">
+						<h4>Recovered Cases</h4>
+						<h4>{{all_new_data.Global.TotalRecovered}}</h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card">
+					<div class="card-body bg-danger">
+						<h4>Death Cases</h4>
+						<h4>{{all_new_data.Global.TotalDeaths}}</h4>
+					</div>
+				</div>
+			</div>	
+		</div>
+
+		<div class="row text-center mt-4">
+			<div class="col-md-4">
+				<div class="card">
+					<div class="card-body bg-warning">
+						<h4>New Confirmed Cases</h4>
+						<h4>{{all_new_data.Global.NewConfirmed}}</h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card">
+					<div class="card-body bg-success">
+						<h4>New Recovered Cases</h4>
+						<h4>{{all_new_data.Global.NewRecovered}}</h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card">
+					<div class="card-body bg-danger">
+						<h4>New Death Cases</h4>
+						<h4>{{all_new_data.Global.NewDeaths}}</h4>
+					</div>
+				</div>
+			</div>	
+		</div>
+		
+
+		<!-- End All Data -->
+
+		<input type="text" class="form-control mt-4" ng-model="c" placeholder="Enter Country" ng-change="get_country_data()">
+
+		<!-- country Data -->
+		<div class="row text-center mt-4">
+			<div class="col-md-8 text-center" ng-if="country_data">
+				<h2>{{c}}</h2>
+			</div>
+		</div>
+		<div class="row text-center mt-4" ng-if="country_data">
+			<div class="col-md-4">
+				<div class="card">
+					<div class="card-body bg-warning">
+						<h4>Confirmed Cases</h4>
+						<h4>{{country_data.confirmed.value}}</h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card">
+					<div class="card-body bg-success">
+						<h4>New Recovered Cases</h4>
+						<h4>{{country_data.recovered.value}}</h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card">
+					<div class="card-body bg-danger">
+						<h4>New Death Cases</h4>
+						<h4>{{country_data.deaths.value}}</h4>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</body>
+</html>
